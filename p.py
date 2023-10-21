@@ -67,17 +67,22 @@ print(req_attemp)
 print(req_age)
 print(req_get_code)
 ##
-time.sleep(30)
+while True:
+    u=s.get('https://moakt.com/ar/inbox').text
+    if 'instagram' in u:
+        break
+    else:
+        pass
 ##
 
 ee = s.get('https://moakt.com/ar/inbox')
 eee = re.findall(r'href="/ar/email/(.*?)">(.*?) is your Instagram code', ee.text)
-print(eee[0][1])
+#print(eee[0][1])
 codee=(eee[0][1])
 #print(ee.text)
 
 
-data_send_code={'code': code,'device_id': "YwkwSAALAAFHoOfAgrw1j0-oJwKq",'email': f'{yy}@teml.net'}
+data_send_code={'code': codee,'device_id': "YwkwSAALAAFHoOfAgrw1j0-oJwKq",'email': f'{yy}@teml.net'}
 
 req_send_code=requests.post(f'https://i.instagram.com/api/v1/accounts/check_confirmation_code/',headers=head_get_code,data=data_send_code)
 singup_code=req_send_code.json()['signup_code']
