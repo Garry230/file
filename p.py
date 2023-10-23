@@ -1,187 +1,110 @@
-import requests
-###send code
-eem = input('Entre  email here :: ')
-headers = {
-    'authority': 'www.instagram.com',
-    'accept': '*/*',
-    'accept-language': 'en-US,en;q=0.9',
-    'content-type': 'application/x-www-form-urlencoded',
-    'dpr': '2.625',
-    'origin': 'https://www.instagram.com',
-    'referer': 'https://www.instagram.com/accounts/signup/email/',
-    'sec-ch-prefers-color-scheme': 'light',
-    'sec-ch-ua': '"Chromium";v="118", "Google Chrome";v="118", "Not=A?Brand";v="99"',
-    'sec-ch-ua-full-version-list': '"Chromium";v="118.0.5993.71", "Google Chrome";v="118.0.5993.71", "Not=A?Brand";v="99.0.0.0"',
-    'sec-ch-ua-mobile': '?1',
-    'sec-ch-ua-model': '"SM-G955U"',
-    'sec-ch-ua-platform': '"Android"',
-    'sec-ch-ua-platform-version': '"8.0.0"',
-    'sec-fetch-dest': 'empty',
-    'sec-fetch-mode': 'cors',
-    'sec-fetch-site': 'same-origin',
-    'user-agent': 'Mozilla/5.0 (Linux; Android 8.0.0; SM-G955U Build/R16NW) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Mobile Safari/537.36',
-    'viewport-width': '412',
-    'x-asbd-id': '129477',
-    'x-csrftoken': 'EcyRUi6ji3Lkfu0qj3KXIM8EQVZtxL7c',
-    'x-ig-app-id': '936619743392459',
-    'x-ig-www-claim': '0',
-    'x-instagram-ajax': '1009412997',
-    'x-requested-with': 'XMLHttpRequest',
-    'x-web-device-id': 'EAE071D0-150D-4368-A8C4-DC134949368A',
-}
 
-data = {
-    'device_id': 'ZTbLDgALAAH7SUmd2nKj9swfopbx',
-    'email': eem,
-}
+import requests,telebot
+from telebot import types
 
-response = requests.post(
-    'https://www.instagram.com/api/v1/accounts/send_verify_email/',
-    headers=headers,
-    data=data,
-)
+import urllib3
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+import requests,secrets,random,os
+from user_agent import generate_user_agent
 
-print(response.text)
 
-###entre code
-ee = input('Entre code here :: ')
+bot = telebot.TeleBot("5674469602:AAHkbsFsyY-8DgYBiOw4C6FD3DaTAAK0L9g")
 
-headers = {
-    'authority': 'www.instagram.com',
-    'accept': '*/*',
-    'accept-language': 'en-US,en;q=0.9',
-    'content-type': 'application/x-www-form-urlencoded',
-    # 'cookie': 'ig_did=EAE071D0-150D-4368-A8C4-DC134949368A; datr=Dcs2ZWQ-qDSfdWFW0Eeh2zjr; csrftoken=EcyRUi6ji3Lkfu0qj3KXIM8EQVZtxL7c; mid=ZTbLDgALAAH7SUmd2nKj9swfopbx; ig_nrcb=1',
-    'dpr': '2.625',
-    'origin': 'https://www.instagram.com',
-    'referer': 'https://www.instagram.com/accounts/signup/emailConfirmation/',
-    'sec-ch-prefers-color-scheme': 'light',
-    'sec-ch-ua': '"Chromium";v="118", "Google Chrome";v="118", "Not=A?Brand";v="99"',
-    'sec-ch-ua-full-version-list': '"Chromium";v="118.0.5993.71", "Google Chrome";v="118.0.5993.71", "Not=A?Brand";v="99.0.0.0"',
-    'sec-ch-ua-mobile': '?1',
-    'sec-ch-ua-model': '"SM-G955U"',
-    'sec-ch-ua-platform': '"Android"',
-    'sec-ch-ua-platform-version': '"8.0.0"',
-    'sec-fetch-dest': 'empty',
-    'sec-fetch-mode': 'cors',
-    'sec-fetch-site': 'same-origin',
-    'user-agent': 'Mozilla/5.0 (Linux; Android 8.0.0; SM-G955U Build/R16NW) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Mobile Safari/537.36',
-    'viewport-width': '412',
-    'x-asbd-id': '129477',
-    'x-csrftoken': 'EcyRUi6ji3Lkfu0qj3KXIM8EQVZtxL7c',
-    'x-ig-app-id': '936619743392459',
-    'x-ig-www-claim': '0',
-    'x-instagram-ajax': '1009412997',
-    'x-requested-with': 'XMLHttpRequest',
-    'x-web-device-id': 'EAE071D0-150D-4368-A8C4-DC134949368A',
-}
-
-data = {
-    'code': ee,
-    'device_id': 'ZTbLDgALAAH7SUmd2nKj9swfopbx',
-    'email': eem,
-}
-
-responseo = requests.post(
-    'https://www.instagram.com/api/v1/accounts/check_confirmation_code/',
-    headers=headers,
-    data=data,
-)
-
-print(responseo.text)
-## set name
-'''
-headers = {
-    'authority': 'www.instagram.com',
-    'accept': '*/*',
-    'accept-language': 'en-US,en;q=0.9',
-    'content-type': 'application/x-www-form-urlencoded',
-    'dpr': '2.625',
-    'origin': 'https://www.instagram.com',
-    'referer': 'https://www.instagram.com/accounts/signup/birthday/',
-    'sec-ch-prefers-color-scheme': 'light',
-    'sec-ch-ua': '"Chromium";v="118", "Google Chrome";v="118", "Not=A?Brand";v="99"',
-    'sec-ch-ua-full-version-list': '"Chromium";v="118.0.5993.71", "Google Chrome";v="118.0.5993.71", "Not=A?Brand";v="99.0.0.0"',
-    'sec-ch-ua-mobile': '?1',
-    'sec-ch-ua-model': '"SM-G955U"',
-    'sec-ch-ua-platform': '"Android"',
-    'sec-ch-ua-platform-version': '"8.0.0"',
-    'sec-fetch-dest': 'empty',
-    'sec-fetch-mode': 'cors',
-    'sec-fetch-site': 'same-origin',
-    'user-agent': 'Mozilla/5.0 (Linux; Android 8.0.0; SM-G955U Build/R16NW) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Mobile Safari/537.36',
-    'viewport-width': '412',
-    'x-asbd-id': '129477',
-    'x-csrftoken': 'EcyRUi6ji3Lkfu0qj3KXIM8EQVZtxL7c',
-    'x-ig-app-id': '936619743392459',
-    'x-ig-www-claim': '0',
-    'x-instagram-ajax': '1009412997',
-    'x-requested-with': 'XMLHttpRequest',
-    'x-web-device-id': 'EAE071D0-150D-4368-A8C4-DC134949368A',
-}
-
-data = {
-    'email': eem,
-    'name': 'by Nadji',
-}
-
-response = requests.post(
-    'https://www.instagram.com/api/v1/web/accounts/username_suggestions/',
-    headers=headers,
-    data=data,
-)
-
-print(response.text)
-'''
-## confirm finally # set passwd and user
-
-headers = {
-    'authority': 'www.instagram.com',
-    'accept': '*/*',
-    'accept-language': 'en-US,en;q=0.9',
-    'content-type': 'application/x-www-form-urlencoded',
-    'dpr': '2.625',
-    'origin': 'https://www.instagram.com',
-    'referer': 'https://www.instagram.com/accounts/signup/username/',
-    'sec-ch-prefers-color-scheme': 'light',
-    'sec-ch-ua': '"Chromium";v="118", "Google Chrome";v="118", "Not=A?Brand";v="99"',
-    'sec-ch-ua-full-version-list': '"Chromium";v="118.0.5993.71", "Google Chrome";v="118.0.5993.71", "Not=A?Brand";v="99.0.0.0"',
-    'sec-ch-ua-mobile': '?1',
-    'sec-ch-ua-model': '"SM-G955U"',
-    'sec-ch-ua-platform': '"Android"',
-    'sec-ch-ua-platform-version': '"8.0.0"',
-    'sec-fetch-dest': 'empty',
-    'sec-fetch-mode': 'cors',
-    'sec-fetch-site': 'same-origin',
-    'user-agent': 'Mozilla/5.0 (Linux; Android 8.0.0; SM-G955U Build/R16NW) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Mobile Safari/537.36',
-    'viewport-width': '412',
-    'x-asbd-id': '129477',
-    'x-csrftoken': 'EcyRUi6ji3Lkfu0qj3KXIM8EQVZtxL7c',
-    'x-ig-app-id': '936619743392459',
-    'x-ig-www-claim': '0',
-    'x-instagram-ajax': '1009412997',
-    'x-requested-with': 'XMLHttpRequest',
-    'x-web-device-id': 'EAE071D0-150D-4368-A8C4-DC134949368A',
-}
-sn = responseo.json()["signup_code"]
-data = {
-    'enc_password': '#PWD_INSTAGRAM_BROWSER:10:1698089972:P@ssw0rd!',
-    'day': '23',
-    'email': eem,
-    'first_name': 'by nadji',
-    'month': '10',
-    'username': eem.split('@')[0],
-    'year': '2002',
-    'client_id': 'ZTbLDgALAAH7SUmd2nKj9swfopbx',
-    'seamless_login_enabled': '1',
-    'tos_version': 'row',
-    'force_sign_up_code': sn,
-}
-
-response = requests.post(
-    'https://www.instagram.com/api/v1/web/accounts/web_create_ajax/',
-    headers=headers,
-    data=data,
-)
-
-print(response.text)
+@bot.message_handler(commands=['start'])
+def start(message):
+        global id
+        id = message.from_user.id
+        key = types.InlineKeyboardMarkup()
+        key.row_width =2
+        btn1=types.InlineKeyboardButton(text=f"- تعيين بروكسي .",callback_data="setProxy")
+        btn2=types.InlineKeyboardButton(text=f"- انشاء حساب .",callback_data="create")
+        btn3=types.InlineKeyboardButton(text=f"- Dev .",url="https://t.me/trprogram")
+        key.add(btn1,btn2)
+        key.add(btn3)
+        bot.reply_to(message,f"- اهلا بك ايها القديم ..\n- اختر من الاسفل ..",reply_markup=key)
+@bot.callback_query_handler(func=lambda call:True)
+def ca(call):
+    if call.data == "setProxy":
+        bot.send_message(call.message.chat.id,f"None")
+    if call.data == "create":
+        crate_insta(call.message)
+def setProxy(message):
+    if ":" not in message.text or "." not in message.text:
+        bot.reply_to(message,f"- تاكد من كتابه البروكسي بشكل صحيح ...")
+    else:
+        r.set(f"proxy-{id}",f"{message.text}")
+        bot.reply_to(message,f"- {message.text} تم تعيينه بنجاح .")
+def crate_insta(message):
+	mm=bot.send_message(message.chat.id,f"[=] Type The Email ? ")
+	bot.register_next_step_handler(mm,setEmail)
+def setEmail(message):
+	
+	global Password,username,email,proxy,head_get_code,head,data_age,data_get_code,data_attemp,proxies,idd,Cookie
+	email = message.text
+	Cookie=secrets.token_hex(8)*8
+	idd='X5uC6wALAAF-Lw3oSZE9kuY0mP_9'
+	length=(int(9))
+	chars="wwertyuiopasdfghjklzxcvbnmq_"
+	for user in range(1):
+		user=""
+		for item in range(length):
+			user+=random.choice(chars)
+	for password in range(1):
+		password=""
+		for item in range(length):
+			password+=random.choice(chars)
+	username=str(user)
+	Password=str(password)
+	print("[/] Your Username is:",username)
+	print("[\] Your Password is:",Password)
+	with open('acc_iG_Un.txt', 'a') as x:
+		inf=str(f"{email}:{Password}\tuser:{username}")
+		x.write(inf+'\n')
+		x.close
+	head_get_code={'accept': '*/*','accept-encoding': 'gzip, deflate, br','accept-language': 'ar,en-US;q=0.9,en;q=0.8','content-length': '67','content-type': 'application/x-www-form-urlencoded','cookie': Cookie,'origin': 'https://www.instagram.com','referer': 'https://www.instagram.com/','sec-ch-ua': '" Not;A Brand";v="99", "Google Chrome";v="91", "Chromium";v="91"','sec-ch-ua-mobile': '?0','sec-fetch-dest': 'empty','sec-fetch-mode': 'cors','sec-fetch-site': 'same-site','user-agent': generate_user_agent(),'x-asbd-id': '437806','x-csrftoken': 'missing','x-ig-app-id': '936619743392459','x-ig-www-claim': '0','x-instagram-ajax': 'missing',}
+	head={'Host': 'www.instagram.com','Cookie': Cookie,'User-Agent': generate_user_agent(),'Accept': '*/*','Accept-Language': 'ar,en-US;q=0.7,en;q=0.3','Accept-Encoding': 'gzip, deflate','X-Csrftoken': 'missing','X-Instagram-Ajax': 'missing','X-Ig-App-Id': '936619743392459','X-Asbd-Id': '437806','X-Ig-Www-Claim': 'hmac.AR13pf0XdQA_XNAYLrmGWOJtWRr9WkLRRw_dNGcK6i1C5a_k','Content-Type': 'application/x-www-form-urlencoded','X-Requested-With': 'XMLHttpRequest','Content-Length': '432','Origin': 'https://www.instagram.com','Referer': 'https://www.instagram.com/accounts/emailsignup/','Te': 'trailers','Connection': 'close'}
+	
+	data_age={'day': '12','month': '1','year': '1996'}
+	data_attemp={'email': email,'enc_password': f'#PWD_INSTAGRAM_BROWSER:0:1589682409:{Password}','username': username,'first_name': 'BY @trprogram - @VV1CK','client_id': idd,'seamless_login_enabled': '1','opt_into_one_tap': 'false',}
+	data_get_code={'device_id': "YwkwSAALAAFHoOfAgrw1j0-oJwKq",'email': email}
+	try:
+		req_attemp=requests.post(f'https://www.instagram.com/accounts/web_create_ajax/attempt/',headers=head,data=data_attemp,verify=False)
+		req_age=requests.post(f'https://www.instagram.com/web/consent/check_age_eligibility/',headers=head,data=data_age,verify=False)
+		
+		confirm_code(message)
+	except requests.exceptions.ProxyError as rr:
+		bot.reply_to(message,f"- قم بتغيير بروكسيك رجاءا ..")
+		pass
+def confirm_code(message):
+    req_get_code=requests.post(f'https://i.instagram.com/api/v1/accounts/send_verify_email/',headers=head_get_code,data=data_get_code,verify=False)
+    mm = bot.send_message(message.chat.id,f"- ارسل الكود الوصلك على ايميلك ..")
+    bot.register_next_step_handler(mm,verify)
+def verify(message):
+    code = message.text
+    data_send_code={'code': code,'device_id': "YwkwSAALAAFHoOfAgrw1j0-oJwKq",'email': email}
+    req_send_code=requests.post(f'https://i.instagram.com/api/v1/accounts/check_confirmation_code/',headers=head_get_code,data=data_send_code,verify=False)
+    try:singup_code=req_send_code.json()['signup_code']
+    except:bot.reply_to(message,"[!!] Oops! You have a Error Check Your Info\n")
+    try:data_crate={'email': email,'enc_password': f'#PWD_INSTAGRAM_BROWSER:0:1589682409:{Password}','username': username,'first_name': 'By @trprogram','month': '1','day': '12','year': '1996','client_id':"YwkwSAALAAFHoOfAgrw1j0-oJwKq",'seamless_login_enabled': '1','tos_version': 'row','force_sign_up_code': singup_code,}
+    except:bot.reply_to(message,f"[!] Your code , {code} is Not Correct Please Check it And Try Again")
+    req_crate=requests.post(f'https://www.instagram.com/accounts/web_create_ajax/',headers=head,data=data_crate,verify=False)
+    try:
+        if '"account_created": true' in req_crate.text:
+            bot.reply_to(message,f'<strong>[+] Done Crate Account\n- Username : {username} .\n- Password : {Password}</strong>',parse_mode="html")
+        elif "checkpoint_required" in req_crate.text:
+            bot.reply_to(message,f'<strong>[+] Done Crate Account\n- Username : {username} .\n- Password : {Password}</strong>',parse_mode="html")
+        elif "The IP address you are using has been flagged as an open proxy. If you believe this to be incorrect, please visit https://help.instagram.com/" in req_crate.text:
+            bot.reply_to(message,"[!] IP Ban.")
+            bot.reply_to(message,"[~] Retry With Another Email + VPN")
+			#print(req_crate.text)
+        elif "signup_block"==req_crate.json():
+            bot.reply_to(message,"[!] IP Ban.")
+            bot.reply_to(message,"[~] Retry With Another Email + VPN")
+            #print(req_crate.text)
+        elif "false"==req_crate.json()['account_created']:
+            print(req_crate.json())
+            bot.reply_to(message,"[~] Error in Crateing Account. ")
+            bot.reply_to(message,"[-] Retry After A One Min ")
+        else:bot.reply_to(message,f'<strong>[+] Done Crate Account\n- Username : {username} .\n- Password : {Password}</strong>',parse_mode="html")
+    except:bot.reply_to(message,"[!!] Oops! You have a Error Check Your Info\n")
+bot.infinity_polling()
