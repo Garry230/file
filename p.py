@@ -66,7 +66,7 @@ def setEmail(message):
 	
 	data_age={'day': '12','month': '1','year': '1996'}
 	data_attemp={'email': email,'enc_password': f'#PWD_INSTAGRAM_BROWSER:0:1589682409:{Password}','username': username,'first_name': 'BY @trprogram - @VV1CK','client_id': idd,'seamless_login_enabled': '1','opt_into_one_tap': 'false',}
-	data_get_code={'device_id': "YwkwSAALAAFHoOfAgrw1j0-oJwKq",'email': email}
+	#data_get_code={'device_id': "YwkwSAALAAFHoOfAgrw1j0-oJwKq",'email': email}
 	try:
 		req_attemp=requests.post(f'https://www.instagram.com/accounts/web_create_ajax/attempt/',headers=head,data=data_attemp,verify=False)
 		req_age=requests.post(f'https://www.instagram.com/web/consent/check_age_eligibility/',headers=head,data=data_age,verify=False)
@@ -76,7 +76,7 @@ def setEmail(message):
 		bot.reply_to(message,f"- قم بتغيير بروكسيك رجاءا ..")
 		pass
 def confirm_code(message):
-    req_get_code=requests.post(f'https://i.instagram.com/api/v1/accounts/send_verify_email/',headers=head_get_code,data=data_get_code,verify=False)
+    #req_get_code=requests.post(f'https://i.instagram.com/api/v1/accounts/send_verify_email/',headers=head_get_code,data=data_get_code,verify=False)
     mm = bot.send_message(message.chat.id,f"- ارسل الكود الوصلك على ايميلك ..")
     bot.register_next_step_handler(mm,verify)
 def verify(message):
