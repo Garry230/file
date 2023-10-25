@@ -100,6 +100,7 @@ response3 = requests.post(
 print(response3.text)
 
 ####
+'''
 headers5 = {
     'authority': 'www.instagram.com',
     'accept': '*/*',
@@ -141,6 +142,48 @@ response5 = requests.post(
     data=data5,
 )
 print(response5.text)
+'''
+headers88 = {
+    'authority': 'www.instagram.com',
+    'accept': '*/*',
+    'accept-language': 'en-US,en;q=0.9',
+    'content-type': 'application/x-www-form-urlencoded',
+    'cookie': Cookie,
+    'dpr': '2.625',
+    'origin': 'https://www.instagram.com',
+    'referer': 'https://www.instagram.com/accounts/signup/email/',
+    'sec-ch-prefers-color-scheme': 'light',
+    'sec-ch-ua': '"Chromium";v="118", "Google Chrome";v="118", "Not=A?Brand";v="99"',
+    'sec-ch-ua-full-version-list': '"Chromium";v="118.0.5993.71", "Google Chrome";v="118.0.5993.71", "Not=A?Brand";v="99.0.0.0"',
+    'sec-ch-ua-mobile': '?1',
+    'sec-ch-ua-model': '"SM-G955U"',
+    'sec-ch-ua-platform': '"Android"',
+    'sec-ch-ua-platform-version': '"8.0.0"',
+    'sec-fetch-dest': 'empty',
+    'sec-fetch-mode': 'cors',
+    'sec-fetch-site': 'same-origin',
+    'user-agent': Userr,
+    'viewport-width': '412',
+    'x-asbd-id': '129477',
+    'x-csrftoken': 'missing',
+    'x-ig-app-id': '936619743392459',
+    'x-ig-www-claim': '0',
+    'x-instagram-ajax': 'missing',
+    'x-requested-with': 'XMLHttpRequest',
+    'x-web-device-id': 'EAE071D0-150D-4368-A8C4-DC134949368A',
+}
+
+data88 = {
+    'device_id': 'ZTalvgALAAFfy6KqsmBjF5R-vDxH',
+    'email': email}
+
+response99 = requests.post(
+    'https://www.instagram.com/api/v1/accounts/send_verify_email/',
+    headers=headers88,
+    data=data88,
+)
+
+print(response99.text)
 
 ####
 code=input('Entre code : ')
@@ -185,8 +228,9 @@ response6 = requests.post(
     headers=headers6,
     data=data6,
 )
-sn = response6.json()["signup_code"]
 print(response6.text)
+sn = response6.json()["signup_code"]
+
 ####
 headers77 = {
     'authority': 'www.instagram.com',
@@ -239,3 +283,6 @@ response77 = requests.post(
 )
 
 print(response77.text)
+
+
+
